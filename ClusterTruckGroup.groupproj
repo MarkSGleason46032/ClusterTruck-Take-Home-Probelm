@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{A8D55FBD-E3F3-46EA-A374-763A1F9DC2E0}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ClusterTruckTakeHome.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ClusterTruckTakeHome">
+        <MSBuild Projects="ClusterTruckTakeHome.dproj"/>
+    </Target>
+    <Target Name="ClusterTruckTakeHome:Clean">
+        <MSBuild Projects="ClusterTruckTakeHome.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ClusterTruckTakeHome:Make">
+        <MSBuild Projects="ClusterTruckTakeHome.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ClusterTruckTakeHome"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ClusterTruckTakeHome:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ClusterTruckTakeHome:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
